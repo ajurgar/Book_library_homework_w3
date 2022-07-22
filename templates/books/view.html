@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+    {% block content %}
+        <h1>{{title}}</h1>
+<hr>
+        
+        
+        <div>
+          
+            
+              <p><b>Title:</b></p> {{ book.title }} 
+              <p><b>Author: </b></p> {{ book.author }} 
+              <p><b>Genre:</b></p> {{book.genre}}
+              
+              <p>
+            <a href="/books">
+                <form action="">
+   <input class="btn" type="button" value="Back to Library">
+   
+                </form>
+               </p>
+             
+      
+        </div>
+       
+        
+    {% endblock %}

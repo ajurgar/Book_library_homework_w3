@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+    {% block content %}
+        <h1>{{title}}</h1>
+<hr>
+        {% for book in books %}
+        
+        <div>
+          <p>
+            <p><b>Title:</b></p> {{ book.title }} 
+            <p><b>Author: </b></p> {{ book.author }} 
+            <p><b>Genre:</b></p> {{book.genre}}
+            <p>
+                <a href="books/{{books.index(book)}}"> Show Book</a>
+            </p>
+          </p>
+        {% endfor %}
+
+        <div>
+        
+          <form class="form-inline" action="/books/delete/{{ books.title }}" method="POST">
+            <label for="name"> Title </label>
+            <input type="text" id="name" name="name">
+            <input type="submit" value="Delete">
+          </form>
+        </div>   
+        
+  
+        {% endblock %}
