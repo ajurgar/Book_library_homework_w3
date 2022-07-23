@@ -2,28 +2,54 @@
 
     {% block content %}
         <h1>{{title}}</h1>
-<hr>
-        {% for book in books %}
-        
-        <div>
-          <p>
-            <p><b>Title:</b></p> {{ book.title }} 
-            <p><b>Author: </b></p> {{ book.author }} 
-            <p><b>Genre:</b></p> {{book.genre}}
-            <p>
-                <a href="books/{{books.index(book)}}"> Show Book</a>
-            </p>
-          </p>
-        {% endfor %}
 
+        {% for book in books %}
+        <table>
+          <tr>
         <div>
+         <th><p><b>Title: </b></p> </th> 
+         <th><p><b>Author: </b></p> </th>
+         <th> <p><b>Genre: </b></p> </th>
+         <hr>
+        </tr>
+        <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }} </td>
+        <td>{{book.genre}}</td>
+        </tr>
+
+        <tr>
+          <th><b>Availability: </b></th>
+          <th><b>Return by: </b></th>
+          <th> <b>Details: </b> </th>
+        </tr>
+        <tr>
+        <td> {% if book.checked_out %}
+            <p>Checked Out &#10060;</p>
+        {%else%}
+        <p>Available &#9989;</p>
+          {% endif %}</td>
+        <td><label for="date"><b></b></label>
+          <input type="date" id="return-by" name="return-by" value="{{book.return_by}}">
+        </td>
+        <td><a href="books/{{books.index(book)}}"> Show Book</a></td>
+
+        </tr>
+      </table>
+
+
+        {% endfor %}
+        <hr>
+
         
-          <form class="form-inline" action="/books/delete/{{ books.title }}" method="POST">
-            <label for="name"> Title </label>
-            <input type="text" id="name" name="name">
-            <input type="submit" value="Delete">
-          </form>
-        </div>   
-        
+     <form class="form-inline" action="/books/delete" method="POST">
+          <label for="title"> Title </label>
+          <input type="text" id="title" name="title">
+          <input type="submit" value="Delete">
+        </form>
+         
+          
+     
+     
   
         {% endblock %}

@@ -4,7 +4,7 @@ from models.book import *
 from models.list_book import *
 
 
-@app.route("/books")
+@app.route("/books", methods=['GET'])
 def index():
     return render_template("books/index.html", title="Book Library", books=books)
 
@@ -30,7 +30,7 @@ def add():
     return redirect("/books")
 
 
-@app.route("/books/delete/<name>", methods=["POST"])
-def delete(name):
-    delete_book(name)
+@app.route("/books/delete", methods=["POST"])
+def delete():
+    delete_book(request.form["title"])
     return redirect("/books")

@@ -1,0 +1,37 @@
+body{
+    margin: 5%;
+    background-color: aliceblue;
+    text-align: center;
+}
+body > header > nav > ul{
+    text-align: end;
+    list-style: none;
+    
+}
+h1 { color: darkblue; font-family: 'Raleway',sans-serif; font-size: 62px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase; }
+
+table {
+    border-collapse: collapse;
+}
+th {
+    background-color:dodgerblue;
+    Color:white;
+}
+th, td {
+    width:500px;
+    text-align:center;
+    border:1px solid black;
+    padding:5px}
+
+footer{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: dodgerblue;
+    
+}
+
+body > form {
+   width: 100%;
+   display: inline-block;
+   
+}
