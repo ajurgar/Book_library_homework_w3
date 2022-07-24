@@ -19,3 +19,12 @@ def delete_book(book_title):
         if book.title == book_title:
             books.remove(book)
 
+def check_out(book): 
+    index = books.index(book)
+    # if book.checked_out == False:
+    books[index].checked_out = True
+
+def check_in(book):
+    index = books.index(book)
+    # if book.checked_out:
+    books[index].checked_out = False

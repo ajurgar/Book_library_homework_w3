@@ -1,27 +1,42 @@
 {% extends "base.html" %}
 
-    {% block content %}
-        <h1>{{title}}</h1>
+{% block content %}
+<h1>{{title}}</h1>
 <hr>
-        
-        
-        <div>
-          
-            
-              <p><b>Title:</b></p> {{ book.title }} 
-              <p><b>Author: </b></p> {{ book.author }} 
-              <p><b>Genre:</b></p> {{book.genre}}
-              
-              <p>
-            <a href="/books">
-                <form action="">
-   <input class="btn" type="button" value="Back to Library">
-   
-                </form>
-               </p>
-             
-      
-        </div>
-       
-        
-    {% endblock %}
+
+
+<div>
+
+
+    <p><b>Title:</b></p> {{ book.title }}
+    <p><b>Author: </b></p> {{ book.author }}
+    <p><b>Genre:</b></p> {{book.genre}}
+    <p>
+
+    <form action="/books/{{ book_index }}" method="POST">
+        <input type="radio" id="available" name="checked-out" value="check-in">
+        <label for="available">Check In</label> <br>
+        <input type="radio" id="checked-out" name="checked-out" value="check-out">
+        <label for="checked-out">Check Out</label> <br>
+        <br>
+
+        <input type="submit" value="Update">
+
+
+
+    </form>
+    </p>
+
+    <p>
+        <a href="/books">
+            <form action="">
+                <input class="btn" type="button" value="Back to Library">
+
+            </form>
+    </p>
+
+
+</div>
+
+
+{% endblock %}

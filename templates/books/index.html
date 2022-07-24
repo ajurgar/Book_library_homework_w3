@@ -25,14 +25,15 @@
         </tr>
         <tr>
         <td> {% if book.checked_out %}
-            <p>Checked Out &#10060;</p>
+            <p>Checked Out <span>&#10060;</span></p>
         {%else%}
-        <p>Available &#9989;</p>
+        <p>Available <span>&#9989;</span>
+          </p>
           {% endif %}</td>
         <td><label for="date"><b></b></label>
           <input type="date" id="return-by" name="return-by" value="{{book.return_by}}">
-        </td>
-        <td><a href="books/{{books.index(book)}}"> Show Book</a></td>
+        </td><td><a href="books/{{books.index(book)}}"> Show Book</a></td>
+        
 
         </tr>
       </table>

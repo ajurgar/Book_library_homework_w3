@@ -12,7 +12,7 @@ def index():
 @app.route("/books/<index>")
 def book(index):
     book = books[int(index)]
-    return render_template("books/view.html", title="Book View", book=book)
+    return render_template("books/view.html", title="Book View", book=book, book_index=index)
 
 
 @app.route("/books/new")
@@ -35,4 +35,17 @@ def add():
 @app.route("/books/delete", methods=["POST"])
 def delete():
     delete_book(request.form["title"])
+    return redirect("/books")
+
+@app.route("/books/<index>", methods=["POST"])
+def check(index):
+    book = books[int(index)]
+
+    user_selection = request.form["checked-out"] #This comes as a string
+
+    if user_selection == "check-in":
+        check_in(book)
+    if user_selection == "check-out":
+        check_out(book)
+   
     return redirect("/books")
